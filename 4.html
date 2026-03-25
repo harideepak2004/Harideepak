@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harideepak</title>
+<link rel="icon" type="image/png" href="portfolio icon1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#fcedc6;--surface:#EEEAE1;--surface2:#E5E0D5;
+  --text:#18160F;--text-muted:#6A6760;--text-faint:#A09C96;
+  --accent:#B8935A;--accent-l:#D4B48A;--accent-d:#7A5C2E;
+  --line:rgba(24,22,15,0.10);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
+  --cursive:'Dancing Script',cursive;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;}
+
+/* Cursor */
+#cur{position:fixed;width:7px;height:7px;background:var(--text);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cur-r{position:fixed;width:32px;height:32px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .25s,border-color .25s;}
+
+ /* ── Loader ── */
+  #loader {
+    position: fixed; inset: 0; z-index: 1000;
+    background: #1A1814;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  #loader.hide { opacity: 0; visibility: hidden; }
+
+  .logo-wrap { position: relative; }
+
+  .logo-svg { overflow: visible; }
+
+  .logo-letter {
+    font-family: var(--serif);
+    font-weight: 300;
+    fill: none;
+    stroke: #C4A882;
+    stroke-width: 0.8;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLetter 1.4s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
+  .logo-letter:nth-child(2) { animation-delay: 0.15s; }
+  .logo-letter:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes drawLetter {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .logo-fill {
+    font-family: var(--serif);
+    font-weight: 300;
+    fill: #F8F6F1;
+    opacity: 0;
+    animation: fadeInLetter 0.6s ease 1.6s forwards;
+  }
+
+  @keyframes fadeInLetter {
+    to { opacity: 1; }
+  }
+
+  .loader-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #6B6760;
+    text-transform: uppercase;
+    margin-top: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 2s forwards;
+  }
+
+  .loader-line {
+    width: 1px;
+    height: 0;
+    background: var(--accent);
+    margin-top: 24px;
+    animation: growLine 0.8s ease 1.9s forwards;
+  }
+
+  @keyframes growLine {
+    to { height: 48px; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 64px;display:flex;align-items:center;justify-content:space-between;transition:all .35s;}
+nav.scrolled{background:rgba(247,244,238,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:18px 64px;}
+.nav-logo{font-family:var(--cursive);font-size:26px;font-weight:700;color:var(--text);text-decoration:none;opacity:0;animation:fadeUp .6s ease 4s forwards;}
+.nav-links{display:flex;gap:40px;list-style:none;opacity:0;animation:fadeUp .6s ease 4.2s forwards;}
+.nav-links a{font-size:12px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s;}
+.nav-links a:hover{color:var(--text);}.nav-links a:hover::after{width:100%;}
+
+/* ── SECTIONS ── */
+section { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;gap:60px;padding:100px 64px 80px;max-width:1200px;margin:0 auto;position:relative;}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .7s ease 4.3s forwards;}
+.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
+.hero-greeting{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--text-muted);font-style:italic;margin-bottom:6px;opacity:0;animation:fadeUp .7s ease 4.4s forwards;}
+.hero-name{font-family:var(--cursive);font-size:clamp(58px,7.5vw,108px);font-weight:700;line-height:.95;color:var(--text);letter-spacing:-.01em;opacity:0;animation:fadeUp .9s ease 4.5s forwards;}
+.hero-name .ac{color:var(--accent-d);}
+.hero-role{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--text-muted);font-style:italic;margin-top:18px;opacity:0;animation:fadeUp .7s ease 4.7s forwards;}
+.hero-desc{font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-top:28px;max-width:400px;opacity:0;animation:fadeUp .7s ease 4.8s forwards;}
+.hero-btns{display:flex;gap:14px;margin-top:36px;opacity:0;animation:fadeUp .7s ease 4.9s forwards;}
+.btn-p{padding:14px 36px;background:var(--text);color:var(--bg);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .25s,letter-spacing .3s;}
+.btn-p:hover{background:var(--accent-d);letter-spacing:.26em;}
+.btn-o{padding:13px 36px;border:1px solid var(--line);color:var(--text-muted);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:border-color .25s,color .25s;}
+.btn-o:hover{border-color:var(--accent);color:var(--text);}
+
+/* Photo */
+.hero-right{display:flex;flex-direction:column;align-items:center;opacity:0;animation:fadeUp .9s ease 4.6s forwards;}
+.photo-frame{width:300px;height:380px;position:relative;flex-shrink:0;}
+.photo-border-outer{position:absolute;top:-14px;left:-14px;right:14px;bottom:14px;border:1px solid var(--accent-l);pointer-events:none;}
+.photo-inner{width:100%;height:100%;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.photo-initials{font-family:var(--cursive);font-size:96px;font-weight:700;color:var(--accent-l);line-height:1;}
+.photo-label{font-family:var(--mono);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--text-faint);margin-top:10px;}
+.photo-corner{position:absolute;width:16px;height:16px;border-color:var(--accent);border-style:solid;}
+.pc-tl{top:8px;left:8px;border-width:1px 0 0 1px;}.pc-tr{top:8px;right:8px;border-width:1px 1px 0 0;}
+.pc-bl{bottom:8px;left:8px;border-width:0 0 1px 1px;}.pc-br{bottom:8px;right:8px;border-width:0 1px 1px 0;}
+.photo-caption{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint);margin-top:22px;text-align:center;}
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* makes image fill nicely */
+  object-position: center;
+}
+
+
+/* Scroll hint */
+.scroll-hint{position:absolute;bottom:36px;left:64px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .6s ease 5.2s forwards;}
+.scroll-line{width:1px;height:40px;background:var(--accent);transform-origin:top;animation:scrl 1.8s ease 5.8s infinite;}
+@keyframes scrl{0%{transform:scaleY(0);opacity:1;}100%{transform:scaleY(1);opacity:0;}}
+
+/* Divider */
+.divider{width:100%;height:1px;background:var(--line);max-width:1200px;margin:0 auto;}
+
+/* Label */
+.slabel{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:14px;}
+.slabel::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
+
+/* ── ABOUT ── */
+#about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.about-h{font-family:var(--serif);font-size:clamp(32px,4vw,50px);font-weight:300;line-height:1.15;letter-spacing:-.01em;margin-bottom:26px;}
+.about-h em{font-style:italic;color:var(--accent-d);}
+.about-body{font-size:15px;line-height:1.9;color:var(--text-muted);font-weight:300;}
+.about-body p+p{margin-top:18px;}
+.fresher-badge{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:10px 20px;border:1px solid var(--accent-l);background:rgba(184,147,90,.06);font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);}
+.fresher-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.5s ease infinite;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px;}
+.stat{padding:28px 30px;background:var(--bg);}
+.stat-n{font-family:var(--serif);font-size:46px;font-weight:300;line-height:1;color:var(--text);}
+.stat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-top:6px;}
+
+/* ── SKILLS ── */
+.skills-h{font-family:var(--serif);font-size:clamp(32px,4vw,50px);font-weight:300;letter-spacing:-.01em;margin-bottom:56px;}
+.skills-h em{font-style:italic;color:var(--accent-d);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.sg{padding:36px;background:var(--bg);transition:background .3s;}
+.sg:hover{background:var(--surface);}
+.sg-title{font-family:var(--mono);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;}
+.sk-list{list-style:none;}
+.sk-list li{font-size:14px;color:var(--text-muted);padding:9px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-weight:300;transition:color .2s;}
+.sk-list li:last-child{border-bottom:none;}
+.sk-list li:hover{color:var(--text);}
+.sk-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:.5;}
+
+/* ── PROJECTS ── */
+.proj-h{font-family:var(--serif);font-size:clamp(32px,4vw,50px);font-weight:300;letter-spacing:-.01em;margin-bottom:56px;}
+.proj-h em{font-style:italic;color:var(--accent-d);}
+.pcard{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-bottom:2px;overflow:hidden;transition:border-color .3s;}
+.pcard:hover{border-color:var(--accent);}
+.pinfo{padding:48px;border-right:1px solid var(--line);}
+.pnum{font-family:var(--mono);font-size:10px;color:var(--text-faint);letter-spacing:.12em;margin-bottom:18px;}
+.ptitle{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.2;margin-bottom:12px;letter-spacing:-.01em;}
+.pdesc{font-size:14px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:26px;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px;}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--line);color:var(--text-muted);}
+.plink{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:gap .3s,color .2s;}
+.plink:hover{gap:18px;color:var(--accent-d);}
+.pl-arr{width:28px;height:1px;background:currentColor;position:relative;transition:width .3s;}
+.pl-arr::after{content:'';position:absolute;right:0;top:-3px;width:6px;height:6px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg);}
+.pvis{background:var(--surface);min-height:280px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.pv-wrap{width:72%;}
+.ms{background:var(--bg);border:1px solid var(--line);border-radius:3px;box-shadow:0 10px 36px rgba(0,0,0,.07);overflow:hidden;}
+.mb{height:25px;background:var(--surface2);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 10px;gap:5px;}
+.md{width:6px;height:6px;border-radius:50%;background:var(--line);}
+.mc{padding:13px;}
+.ml{height:7px;background:var(--surface2);border-radius:2px;margin-bottom:7px;}
+
+/* ── CONTACT ── */
+#contact{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-h{font-family:var(--serif);font-size:clamp(36px,5vw,65px);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px;}
+.contact-h em{font-style:italic;color:var(--accent-d);}
+.contact-sub{font-size:14px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:40px;}
+.clinks{display:flex;flex-direction:column;}
+.clink{display:flex;align-items:center;gap:16px;font-size:14px;color:var(--text-muted);text-decoration:none;transition:color .2s;padding:18px 0;border-bottom:1px solid var(--line);}
+.clink:first-child{border-top:1px solid var(--line);}
+.clink:hover{color:var(--text);}
+.cl-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);min-width:58px;}
+.cform{display:flex;flex-direction:column;}
+.fg{position:relative;border-bottom:1px solid var(--line);}
+.fg:first-of-type{border-top:1px solid var(--line);}
+.fl{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);position:absolute;top:20px;left:0;transition:all .2s;pointer-events:none;}
+.ff{width:100%;padding:28px 0 12px;background:transparent;border:none;outline:none;font-family:var(--sans);font-size:15px;color:var(--text);font-weight:300;resize:none;}
+.ff:focus~.fl,.ff:not(:placeholder-shown)~.fl{top:7px;font-size:8px;color:var(--accent);}
+.ff::placeholder{color:transparent;}
+.fsub{margin-top:28px;padding:14px 40px;background:var(--text);color:var(--bg);border:none;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:none;transition:background .2s,letter-spacing .3s;align-self:flex-start;}
+.fsub:hover{background:var(--accent-d);letter-spacing:.3em;}
+
+footer{border-top:1px solid var(--line);padding:36px 64px;display:flex;align-items:center;justify-content:space-between;}
+.fcopy{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--text-faint);}
+.fsig{font-family:var(--cursive);font-size:22px;font-weight:700;color:var(--text-muted);}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.25,.46,.45,.94),transform .85s cubic-bezier(.25,.46,.45,.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav,footer{padding-left:24px;padding-right:24px;}
+  section{padding-left:24px;padding-right:24px;}
+  #hero{padding:80px 24px 60px;grid-template-columns:1fr;min-height:auto;gap:40px;}
+  .scroll-hint{left:24px;}
+  #about,#contact{grid-template-columns:1fr;gap:48px;}
+  .skills-grid{grid-template-columns:1fr;}
+  .pcard{grid-template-columns:1fr;}
+  .pinfo{border-right:none;border-bottom:1px solid var(--line);}
+  .pvis{min-height:200px;}
+  .nav-links{display:none;}
+  .photo-frame{width:240px;height:300px;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="logo-wrap">
+    <svg class="logo-svg" viewBox="0 0 280 120" width="280" height="120" xmlns="http://www.w3.org/2000/svg">
+      <!-- H -->
+      <text class="logo-letter" x="80" y="100" font-size="100" font-family="Cormorant Garamond, serif" font-weight="300">H</text>
+      <!-- D -->
+      <text class="logo-letter" x="150" y="100" font-size="100" font-family="Cormorant Garamond, serif" font-weight="300">D</text>
+      <!-- Full name reveal -->
+      <text class="logo-fill" x="80" y="100" font-size="100" font-family="Cormorant Garamond, serif" font-weight="300">H</text>
+      <text class="logo-fill" x="150" y="100" font-size="100" font-family="Cormorant Garamond, serif" font-weight="300" style="animation-delay:1.65s">D</text>
+    </svg>
+  </div>
+  <div class="loader-line"></div>
+  <p class="loader-sub">Full Stack Developer</p>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Harideepak</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Open to Opportunities</p>
+    <p class="hero-greeting">Hello, I'm</p>
+    <h1 class="hero-name">Hari<span class="ac">deepak</span></h1>
+    <p class="hero-role">Full Stack Developer</p>
+    <p class="hero-desc">A passionate fresher who turns ideas into full-stack web products — elegant interfaces, scalable backends, real deployments.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-p">View My Work</a>
+      <a href="#contact" class="btn-o">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="photo-frame">
+      <div class="photo-border-outer"></div>
+      <div class="photo-inner">
+        <div class="photo-corner pc-tl"></div><div class="photo-corner pc-tr"></div>
+        <div class="photo-corner pc-bl"></div><div class="photo-corner pc-br"></div>
+        <img src="portfolio dp.jpeg" alt="Profile Photo" class="photo">
+      </div>
+    </div>
+    <p class="photo-caption">Based in India &nbsp;·&nbsp; Available Worldwide</p>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="slabel">About Me</p>
+    <h2 class="about-h">Building with <em>curiosity</em><br>and clean code</h2>
+    <div class="about-body">
+      <p>I'm Harideepak, a fresh Full Stack Developer with a genuine passion for building web applications that are both technically solid and visually refined. I love working across the full stack — from pixel-perfect UIs to RESTful APIs.</p>
+      <p>As a fresher, I bring enthusiasm, a fast learning mindset, and real shipped projects. Every line of code I write sharpens me further.</p>
+    </div>
+    <div class="fresher-badge">Fresh Graduate &nbsp;·&nbsp; Ready to Contribute</div>
+  </div>
+  <div class="reveal" style="transition-delay:.15s;">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Live Projects</div></div>
+      <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Technologies</div></div>
+      <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Curiosity</div></div>
+      <div class="stat"><div class="stat-n">1st</div><div class="stat-l">Big Opportunity</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal">
+    <p class="slabel">Expertise</p>
+    <h2 class="skills-h">Tech <em>Stack</em></h2>
+  </div>
+  <div class="skills-grid reveal" style="transition-delay:.1s;">
+    <div class="sg">
+      <p class="sg-title">Frontend</p>
+      <ul class="sk-list">
+        <li>React.js <span class="sk-dot"></span></li>
+        <li>HTML5 / CSS3 <span class="sk-dot"></span></li>
+        <li>JavaScript (ES6+) <span class="sk-dot"></span></li>
+        <li>Tailwind CSS <span class="sk-dot"></span></li>
+        <li>Responsive Design <span class="sk-dot"></span></li>
+      </ul>
+    </div>
+    <div class="sg">
+      <p class="sg-title">Backend</p>
+      <ul class="sk-list">
+        <li>Node.js  <span class="sk-dot"></span></li>
+        <li>Python <span class="sk-dot"></span></li>
+        <li>Django <span class="sk-dot"></span></li>
+        <li>REST APIs <span class="sk-dot"></span></li>
+        <li>Authentication / JWT <span class="sk-dot"></span></li>
+      </ul>
+    </div>
+    <div class="sg">
+      <p class="sg-title">Tools & Database</p>
+      <ul class="sk-list">
+        <li>PostgreSQL / MySQL <span class="sk-dot"></span></li>
+        <li>VS Code <span class="sk-dot"></span></li>
+        <li>Git & GitHub <span class="sk-dot"></span></li>
+        <li>Netlify / Render <span class="sk-dot"></span></li>
+        <li>Vercel <span class="sk-dot"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <p class="slabel">Work</p>
+    <h2 class="proj-h">Real <em>Projects</em></h2>
+  </div>
+
+  <!-- 01 Sri Electricals -->
+  <div class="pcard reveal" style="transition-delay:.1s;">
+    <div class="pinfo">
+      <p class="pnum">01 — sri-electricals.netlify.app</p>
+      <h3 class="ptitle">Sri Electricals</h3>
+      <p class="pdesc">A professional business website for a local electrical shop — featuring service listings, product showcase, contact section, and a clean layout built for real customers browsing on any device.</p>
+      <div class="tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">CSS3</span><span class="tag">Netlify</span></div>
+      <a href="https://sri-electricals.netlify.app/" target="_blank" class="plink">Live Site <span class="pl-arr"></span></a>
+    </div>
+    <div class="pvis">
+      <div class="pv-wrap">
+        <div class="ms">
+          <div class="mb"><div class="md"></div><div class="md"></div><div class="md"></div><div style="flex:1;margin-left:8px;height:11px;background:var(--surface2);border-radius:2px;"></div></div>
+          <div class="mc">
+            <div style="height:46px;background:var(--surface2);border-radius:2px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:6px;">
+              <div style="width:18px;height:18px;border-radius:50%;background:var(--accent);opacity:.4;"></div>
+              <div style="font-family:var(--mono);font-size:8px;color:var(--text-faint);letter-spacing:.12em;">SRI ELECTRICALS</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;">
+              <div style="height:42px;background:var(--surface2);border-radius:2px;"></div>
+              <div style="height:42px;background:var(--surface2);border-radius:2px;"></div>
+              <div style="height:42px;background:var(--accent);opacity:.18;border-radius:2px;"></div>
+            </div>
+            <div class="ml" style="width:75%;"></div><div class="ml" style="width:50%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Pets Cafe -->
+  <div class="pcard reveal" style="transition-delay:.2s;">
+    <div class="pinfo">
+      <p class="pnum">02 — petscafe.onrender.com</p>
+      <h3 class="ptitle">Pets Cafe</h3>
+      <p class="pdesc">A responsive pet café web application with a static menu display, booking feature, and user authentication system, developed using HTML, CSS, JavaScript, and Django.</p>
+      <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Render</span></div>
+      <a href="https://petscafe.onrender.com/" target="_blank" class="plink">Live Site <span class="pl-arr"></span></a>
+    </div>
+    <div class="pvis">
+      <div class="pv-wrap">
+        <div class="ms">
+          <div class="mb"><div class="md"></div><div class="md"></div><div class="md"></div><div style="flex:1;margin-left:8px;height:11px;background:var(--surface2);border-radius:2px;"></div></div>
+          <div class="mc">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px;background:var(--surface2);border-radius:2px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);opacity:.35;"></div>
+              <div><div style="height:6px;width:80px;background:var(--line);border-radius:2px;margin-bottom:4px;"></div><div style="height:5px;width:50px;background:var(--line);border-radius:2px;"></div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+              <div style="height:50px;background:var(--surface2);border-radius:2px;"></div>
+              <div style="height:50px;background:var(--surface2);border-radius:2px;"></div>
+              <div style="height:50px;background:var(--accent);opacity:.14;border-radius:2px;"></div>
+              <div style="height:50px;background:var(--surface2);border-radius:2px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 Mobile Products -->
+  <div class="pcard reveal" style="transition-delay:.3s;">
+    <div class="pinfo">
+      <p class="pnum">03 — mobile-products.netlify.app</p>
+      <h3 class="ptitle">Mobile Products Store</h3>
+      <p class="pdesc">A React e-commerce store for mobile phones — product listings with filtering, detailed product pages, a shopping cart, and a smooth browse-to-buy experience deployed live on Netlify.</p>
+      <div class="tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">CSS3</span><span class="tag">Netlify</span></div>
+      <a href="https://mobile-products.netlify.app/" target="_blank" class="plink">Live Site <span class="pl-arr"></span></a>
+    </div>
+    <div class="pvis">
+      <div class="pv-wrap">
+        <div class="ms">
+          <div class="mb"><div class="md"></div><div class="md"></div><div class="md"></div><div style="flex:1;margin-left:8px;height:11px;background:var(--surface2);border-radius:2px;"></div></div>
+          <div class="mc">
+            <div style="display:flex;gap:6px;margin-bottom:10px;">
+              <div style="flex:1;height:10px;background:var(--surface2);border-radius:10px;"></div>
+              <div style="width:36px;height:10px;background:var(--accent);opacity:.3;border-radius:10px;"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+              <div style="height:65px;background:var(--surface2);border-radius:2px;display:flex;align-items:flex-end;padding:6px;"><div style="height:6px;width:70%;background:var(--line);border-radius:2px;"></div></div>
+              <div style="height:65px;background:var(--surface2);border-radius:2px;display:flex;align-items:flex-end;padding:6px;"><div style="height:6px;width:60%;background:var(--line);border-radius:2px;"></div></div>
+              <div style="height:65px;background:var(--accent);opacity:.13;border-radius:2px;display:flex;align-items:flex-end;padding:6px;"><div style="height:6px;width:80%;background:var(--accent);opacity:.4;border-radius:2px;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="slabel">Let's Talk</p>
+    <h2 class="contact-h">Start a<br><em>conversation</em></h2>
+    <p class="contact-sub">I'm actively looking for my first opportunity — full-time roles, internships, or freelance projects. Let's connect and build something great.</p>
+    <div class="clinks">
+      <a href="mailto:harideepak.s10@email.com" class="clink"><span class="cl-lbl">Email</span>harideepak.s10@email.com</a>
+      <a href="https://www.linkedin.com/in/harideepak10" target="_blank" class="clink"><span class="cl-lbl">LinkedIn</span>linkedin.com/in/harideepak10</a>
+      <a href="https://github.com/harideepak2004" target="_blank" class="clink"><span class="cl-lbl">GitHub</span>github.com/harideepak2004</a>
+    </div>
+  </div>
+  <div class="reveal" style="transition-delay:.15s;">
+    <form class="cform" onsubmit="handleSubmit(event)" action="https://formspree.io/f/mqegzlwa" method="POST" >
+      <div class="fg"><input class="ff" type="text" name="name" id="nm" placeholder="Name" required><label class="fl" for="nm">Name</label></div>
+      <div class="fg"><input class="ff" type="email" name="email" id="em" placeholder="Email" required><label class="fl" for="em">Email</label></div>
+      <div class="fg"><input class="ff" type="tel" name="phone" id="ph" placeholder="Phone" ><label class="fl" for="ph">Phone</label></div>
+      <div class="fg"><textarea class="ff" name="message" id="mg" placeholder="Message" rows="5" required></textarea><label class="fl" for="mg">Message</label></div>
+      <button type="submit" class="fsub">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span class="fcopy">© 2025 Harideepak · All rights reserved</span>
+  <span class="fsig">Harideepak</span>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.borderColor='var(--accent-d)';});
+  el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='var(--accent)';});
+});
+
+  // Loader
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    document.body.style.overflow = '';
+  }, 3200);
+  document.body.style.overflow = 'hidden';
+
+// Nav
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);});
+
+// Reveal
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Form
+function handleSubmit(e){
+  e.preventDefault();
+
+  const form = e.target;
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(() => {
+    const b = form.querySelector('.fsub');
+    b.textContent = 'Sent ✓';
+    b.style.background = 'var(--accent-d)';
+    form.reset();
+  }).catch(() => {
+    alert("Something went wrong!");
+  });
+}
+</script>
+</body>
+</html>
