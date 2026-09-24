@@ -218,6 +218,8 @@ section{padding:120px 64px;max-width:1200px;margin:0 auto;}
 .mini-d{font-size:13.5px;line-height:1.75;color:var(--text-muted);font-weight:300;margin-bottom:18px;flex:1;}
 .plink{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text);display:inline-flex;align-items:center;gap:10px;margin-top:18px;transition:gap .3s,color .2s;}
 .mini:hover .plink{gap:16px;color:var(--accent-d);}
+.cinfo .plink{text-decoration:none;margin-top:26px;}
+.cinfo .plink:hover{gap:16px;color:var(--accent-d);}
 .pl-arr{width:24px;height:1px;background:currentColor;position:relative;}
 .pl-arr::after{content:'';position:absolute;right:0;top:-3px;width:6px;height:6px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg);}
 /* watches mock */
@@ -468,6 +470,7 @@ footer{border-top:1px solid var(--line);padding:36px 64px;display:flex;align-ite
         <li><b>AI</b><span>In-app assistant on Groq with retry logic and guardrails that stop it inventing data</span></li>
       </ul>
       <div class="tags"><span class="tag">Django 5</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">Stripe</span><span class="tag">React</span><span class="tag">Render</span></div>
+      <a href="https://aura-clinical-platform.netlify.app/" target="_blank" rel="noopener" class="plink">Live demo <span class="pl-arr"></span></a>
     </div>
     <div class="cvis">
       <svg viewBox="0 0 420 330" role="img" aria-label="Architecture: React dashboard calls a Django REST API, which runs booking, patient and inventory, Stripe and AI assistant modules on PostgreSQL">
