@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { caseStudies } from '../data.js'
 import { Heading } from './Layout.jsx'
 
@@ -102,6 +103,7 @@ function Roster({ tiers }) {
 
 function CaseStudy({ c, index }) {
   const Diagram = diagrams[c.diagram]
+  const [view, setView] = useState(c.screenshot ? 'shot' : 'arch')
   return (
     <article className={`case reveal${index % 2 ? ' flip' : ''}`}>
       <div className="cinfo">
@@ -129,8 +131,20 @@ function CaseStudy({ c, index }) {
         )}
       </div>
       <div className="cvis">
-        <div className="cvis-bar"><span /><span /><span /><p>{c.diagramLabel}</p></div>
-        <div className="cvis-body">{Diagram && <Diagram />}</div>
+        <div className="cvis-bar">
+          <span /><span /><span />
+          {c.screenshot ? (
+            <div className="cvis-tabs" role="tablist">
+              <button role="tab" aria-selected={view === 'shot'} className={`cvis-tab${view === 'shot' ? ' on' : ''}`} onClick={() => setView('shot')}>Screenshot</button>
+              <button role="tab" aria-selected={view === 'arch'} className={`cvis-tab${view === 'arch' ? ' on' : ''}`} onClick={() => setView('arch')}>Architecture</button>
+            </div>
+          ) : <p>{c.diagramLabel}</p>}
+        </div>
+        <div className={`cvis-body${view === 'shot' ? ' shot' : ''}`}>
+          {view === 'shot'
+            ? <a href={c.screenshot} target="_blank" rel="noopener" title="Open full size"><img className="cvis-shot" src={c.screenshot} alt={`${c.title} screenshot`} loading="lazy" /></a>
+            : Diagram && <Diagram />}
+        </div>
       </div>
       {c.roster && <Roster tiers={c.roster} />}
     </article>

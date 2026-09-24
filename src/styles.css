@@ -300,3 +300,11 @@ footer{border-top:1px solid var(--line);padding:36px 64px;display:flex;align-ite
   html{scroll-behavior:auto;}
 }
 .tier-block + .tier-block{margin-top:26px;}
+
+/* case study: screenshot / architecture tabs */
+.cvis-tabs{margin-left:auto;display:flex;gap:4px;}
+.cvis-tab{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border:1px solid transparent;background:none;color:var(--text-faint);cursor:pointer;transition:color .2s,border-color .2s,background .2s;}
+.cvis-tab:hover{color:var(--text);}
+.cvis-tab.on{border-color:var(--accent-l);color:var(--accent-d);background:var(--bg);}
+.cvis-body.shot{padding:32px 28px;}
+.cvis-shot{width:100%;display:block;border:1px solid var(--line);border-radius:4px;box-shadow:0 22px 44px -24px rgba(20,15,5,.45);}

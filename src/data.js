@@ -66,6 +66,8 @@ export const experience = [
 
 // icon: one of 'user' | 'mail' | 'shield' | 'calendar' | 'card' | 'spark'
 // diagram: one of 'superAgent' | 'aura'
+// screenshot: path under /public (optional). When set, the card shows
+//             Screenshot / Architecture tabs.
 export const caseStudies = [
   {
     kind: 'AI Platform',
@@ -80,6 +82,7 @@ export const caseStudies = [
     tags: ['Django', 'FastAPI', 'React', 'Flutter', 'Groq', 'Claude', 'OAuth'],
     demo: 'https://super-agent-qwbi.onrender.com/',
     demoNote: 'Hosted on Render: the first load can take up to a minute while the server wakes up.',
+    screenshot: null, // add '/img/super-agent.jpg' when ready
     diagram: 'superAgent',
     diagramLabel: 'architecture · super-agent',
     roster: [
@@ -120,6 +123,7 @@ export const caseStudies = [
     ],
     tags: ['Django 5', 'DRF', 'PostgreSQL', 'JWT', 'Stripe', 'React', 'Render'],
     demo: 'https://aura-clinical-platform.netlify.app/',
+    screenshot: '/img/aura.jpg',
     diagram: 'aura',
     diagramLabel: 'architecture · aura',
   },
@@ -153,7 +157,7 @@ export const earlierWork = [
     title: 'Watches',
     kind: 'Luxury showcase',
     url: 'https://watches10.netlify.app/',
-    image: null,
+    image: '/img/watches.jpg',
     desc: 'A premium watch showcase with sections on craftsmanship and design, smooth scroll animations and a luxury feel.',
     tags: ['HTML5', 'CSS3', 'JavaScript'],
   },
