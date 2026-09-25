@@ -35,7 +35,7 @@ export const about = [
 
 export const stats = [
   { n: '7', label: 'Live projects' },
-  { n: '2', label: 'Full-stack platforms' },
+  { n: '4', label: 'Full-stack platforms' },
   { n: '15+', label: 'Technologies' },
   { n: '2', label: 'LLM providers' },
 ]
