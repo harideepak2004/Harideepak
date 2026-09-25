@@ -152,7 +152,7 @@ export const earlierWork = [
     url: 'https://smart-parking-platform.netlify.app/',
     image: '/img/smart-parking.jpg',
     desc: 'QR-based parking: drivers scan a code to find and book a free slot, and staff check them out and send the bill in one tap, with a live floor map of free and taken slots.',
-    tags: ['Web app', 'QR booking', 'Netlify'],
+    tags: ['React 19', 'Vite', 'React Router', 'Django REST', 'Render'],
   },
   {
     title: 'Pets Cafe',
@@ -160,7 +160,7 @@ export const earlierWork = [
     url: 'https://pet-cafe.netlify.app/',
     image: '/img/pets-cafe.jpg',
     desc: 'A cafe for pet lovers in Tuticorin: order from the table or for takeaway, book an hour with the dogs, cats, hamsters and love birds, with customer accounts and feedback.',
-    tags: ['Web app', 'Ordering', 'Netlify'],
+    tags: ['React 19', 'Vite', 'React Router', 'Django REST', 'Render'],
   },
   {
     title: 'Sri Electricals',
