@@ -143,8 +143,33 @@ export const skills = [
   { group: 'Data & Deploy', items: ['PostgreSQL · MySQL', 'Stripe · OAuth', 'Netlify', 'Render', 'Git · GitHub Actions'] },
 ]
 
+// Other projects, shown as cards under "More Projects".
 // image: path under /public, or null to show a drawn placeholder
 export const earlierWork = [
+  {
+    title: 'Smart Parking',
+    kind: 'Parking management app',
+    url: 'https://smart-parking-platform.netlify.app/',
+    image: '/img/smart-parking.jpg',
+    desc: 'QR-based parking: drivers scan a code to find and book a free slot, and staff check them out and send the bill in one tap, with a live floor map of free and taken slots.',
+    tags: ['Web app', 'QR booking', 'Netlify'],
+  },
+  {
+    title: 'Pets Cafe',
+    kind: 'Cafe ordering & bookings',
+    url: 'https://pet-cafe.netlify.app/',
+    image: '/img/pets-cafe.jpg',
+    desc: 'A cafe for pet lovers in Tuticorin: order from the table or for takeaway, book an hour with the dogs, cats, hamsters and love birds, with customer accounts and feedback.',
+    tags: ['Web app', 'Ordering', 'Netlify'],
+  },
+  {
+    title: 'Sri Electricals',
+    kind: 'Business website',
+    url: 'https://sri-electricals.netlify.app/',
+    image: '/img/electricals.jpg',
+    desc: 'A website for an electricals, hardware and plumbing shop in Thoothukudi: products, brands, industries served, reviews, quote requests, directions and WhatsApp chat.',
+    tags: ['React', 'CSS3', 'Netlify'],
+  },
   {
     title: 'Interiors',
     kind: 'Interior design',
@@ -160,13 +185,5 @@ export const earlierWork = [
     image: '/img/watches.jpg',
     desc: 'A premium watch showcase with sections on craftsmanship and design, smooth scroll animations and a luxury feel.',
     tags: ['HTML5', 'CSS3', 'JavaScript'],
-  },
-  {
-    title: 'Sri Electricals',
-    kind: 'Business website',
-    url: 'https://sri-electricals.netlify.app/',
-    image: '/img/electricals.jpg',
-    desc: 'A business website for an electrical shop, with services, product categories and a contact section.',
-    tags: ['React', 'CSS3', 'Netlify'],
   },
 ]

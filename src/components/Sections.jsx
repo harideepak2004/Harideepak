@@ -136,7 +136,7 @@ function SiteMock() {
 export function EarlierWork() {
   return (
     <section id="earlier">
-      <Heading label="Earlier Work">Live <em>websites</em></Heading>
+      <Heading label="More Projects">Apps &amp; <em>websites</em></Heading>
       <div className="mini-grid reveal" style={{ transitionDelay: '.1s' }}>
         {earlierWork.map((w, i) => (
           <a className="mini" href={w.url} target="_blank" rel="noopener" key={w.title}>
