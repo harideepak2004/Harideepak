@@ -5,6 +5,7 @@ import { Heading } from './Layout.jsx'
 const icons = {
   user: <><circle cx="12" cy="8" r="3.5" /><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5" /></>,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></>,
+  lock: <><rect x="4.5" y="10.5" width="15" height="10" rx="2" /><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" /></>,
   shield: <><path d="M12 3l8 4v5c0 4.4-3.4 8.2-8 9-4.6-.8-8-4.6-8-9V7z" /><path d="M8.5 12l2.5 2.5 4.5-5" /></>,
   calendar: <><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M3 10h18M8 3v4M16 3v4" /></>,
   card: <><rect x="2.5" y="5.5" width="19" height="13" rx="2" /><path d="M2.5 10h19M6 15h4" /></>,
@@ -36,19 +37,19 @@ const Marker = ({ id }) => (
 function SuperAgentDiagram() {
   const m = 'a1'
   return (
-    <svg viewBox="0 0 440 340" role="img" aria-label="Architecture: React and Flutter clients talk to a Django core, which delegates to an Orchestrator Agent in FastAPI that coordinates email, document and six more domain agents on an LLM">
+    <svg viewBox="0 0 440 340" role="img" aria-label="Architecture: a React web app talks to a Django core with teams, roles and approvals, which delegates to an Orchestrator Agent in FastAPI that coordinates email, messaging and eight more domain agents on an LLM">
       <Marker id={m} />
-      <Node x={70} y={16} w={140} h={44} title="React Web" sub="web client" />
-      <Node x={230} y={16} w={140} h={44} title="Flutter App" sub="mobile client" />
+      <Node x={70} y={16} w={140} h={44} title="React Web App" sub="Netlify" />
+      <Node x={230} y={16} w={140} h={44} title="Approvals" sub="role-based policies" variant="ext" />
       <Arrow id={m} d="M140 60V94" /><Arrow id={m} d="M300 60V94" />
-      <Node x={50} y={98} w={340} h={50} title="Django · DRF Core" sub="auth · users · tasks · history" />
+      <Node x={50} y={98} w={340} h={50} title="Django · DRF Core" sub="auth · teams & roles · tasks · approvals" />
       <Arrow id={m} d="M220 148V182" />
       <Node x={50} y={186} w={340} h={50} title="Orchestrator Agent" sub="FastAPI · built on the Base Agent" variant="hi" />
       <Line d="M220 236V254M64 254H376" />
       {[64, 168, 272, 376].map((x) => <Arrow key={x} id={m} d={`M${x} 254V270`} />)}
       <Node x={16} y={274} w={96} h={52} title="Email Ops" sub="Gmail OAuth" />
-      <Node x={120} y={274} w={96} h={52} title="Documents" sub="Google Drive" />
-      <Node x={224} y={274} w={96} h={52} title="+6 agents" sub="finance · QA" />
+      <Node x={120} y={274} w={96} h={52} title="Messaging" sub="WA · TG · Slack" />
+      <Node x={224} y={274} w={96} h={52} title="+6 agents" sub="docs · finance" />
       <Node x={328} y={274} w={96} h={52} title="LLM" sub="Groq · Claude" variant="ext" />
     </svg>
   )
@@ -92,6 +93,7 @@ function Roster({ tiers }) {
             {t.agents.map((a) => (
               <div className={`agent${t.core ? ' core' : ''}`} key={a.name}>
                 <div><p className="a-n">{a.name}</p><p className="a-d">{a.area}</p></div>
+                {a.status && <span className="a-tag">{a.status}</span>}
               </div>
             ))}
           </div>

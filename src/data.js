@@ -47,9 +47,9 @@ export const experience = [
     org: 'Krypsos',
     role: 'Software Developer · Full Stack & AI',
     points: [
-      'Building a multi-agent AI platform: Django core, a FastAPI agent service, and React web and Flutter clients.',
+      'Building Super Agent, a multi-agent AI platform: 10 agents on a Django core and FastAPI agent service, with a React web app and human-in-the-loop approvals.',
       'Built the backend for a clinic management system: bookings, patients, inventory, Stripe payments in EUR and an AI assistant.',
-      'Integrated Gmail (OAuth), Google Drive and Stripe, and made LLM tool-calling reliable with retries, output recovery and timeouts.',
+      'Integrated Gmail (OAuth), Google Drive, WhatsApp, Telegram, Slack and Stripe, and made LLM tool-calling reliable with grounding checks, retries, output recovery and timeouts.',
       'Deploy and run the apps on Netlify (frontends) and Render (APIs and databases).',
     ],
   },
@@ -64,7 +64,8 @@ export const experience = [
   },
 ]
 
-// icon: one of 'user' | 'mail' | 'shield' | 'calendar' | 'card' | 'spark'
+// icon: one of 'user' | 'mail' | 'shield' | 'lock' | 'calendar' | 'card' | 'spark'
+// agent status (optional): e.g. 'In progress' shows a small tag on the agent card
 // diagram: one of 'superAgent' | 'aura'
 // screenshot: path under /public (optional). When set, the card shows
 //             Screenshot / Architecture tabs.
@@ -73,16 +74,17 @@ export const caseStudies = [
     kind: 'AI Platform',
     org: 'Krypsos',
     title: 'Super Agent Platform',
-    desc: 'A multi-agent AI platform with 10 agents that handle real work across a business: email, documents, invoices and expenses, messaging, reporting, compliance and multi-step workflows.',
+    desc: 'Your AI workforce, orchestrated. 10 specialised agents handle real business work across email, messaging, documents, finance, reporting, compliance and multi-step workflows, with a human approval step built in for risky actions.',
     highlights: [
-      { icon: 'user', title: 'My role', text: 'Full-stack developer across the Django backend, the FastAPI agent service and the React web client.' },
-      { icon: 'mail', title: 'Agents', text: 'A Base Agent and an Orchestrator at the core, plus 8 domain agents for email, documents, finance, messaging, reporting, compliance, data quality and workflows.' },
-      { icon: 'shield', title: 'The hard part', text: 'Reliable tool-calling: recovering malformed model output, passing data between tools, and task timeouts.' },
+      { icon: 'user', title: 'My role', text: 'Full-stack developer across the Django / DRF backend, the FastAPI agent service and the React web app that covers every module of the platform.' },
+      { icon: 'mail', title: 'Real integrations', text: 'Agents work in Gmail (OAuth) and Google Drive and send messages over WhatsApp, Telegram and Slack. Saved workflows run end to end automatically.' },
+      { icon: 'lock', title: 'Approvals & team roles', text: 'Admin, Manager and Member roles with approval policies per agent (for example, Finance needs an Admin). Sensitive actions like sending emails or messages wait for approval.' },
+      { icon: 'shield', title: 'Grounded, reliable agents', text: 'A grounding check stops an agent from reporting a send or action it never made, plus recovery from malformed tool calls, retries and task timeouts on Anthropic Claude and Groq.' },
     ],
-    tags: ['Django', 'FastAPI', 'React', 'Flutter', 'Groq', 'Claude', 'OAuth'],
-    demo: 'https://super-agent-qwbi.onrender.com/',
-    demoNote: 'Hosted on Render: the first load can take up to a minute while the server wakes up.',
-    screenshot: null, // add '/img/super-agent.jpg' when ready
+    tags: ['Django', 'DRF', 'FastAPI', 'React', 'Claude', 'Groq', 'OAuth'],
+    demo: 'https://super-agent-platform.netlify.app/',
+    demoNote: 'The API runs on Render\'s free plan, so the first request can take up to a minute while the server wakes up.',
+    screenshot: '/img/super-agent.jpg',
     diagram: 'superAgent',
     diagramLabel: 'architecture · super-agent',
     roster: [
@@ -102,11 +104,18 @@ export const caseStudies = [
           { name: 'Email Operations', area: 'Communication' },
           { name: 'Document Processing', area: 'Operations' },
           { name: 'Invoice & Expense', area: 'Finance' },
-          { name: 'Communication', area: 'Messaging' },
+          { name: 'Communication', area: 'WhatsApp · Telegram · Slack' },
           { name: 'Reporting', area: 'Analytics' },
           { name: 'Compliance', area: 'Risk & policy' },
           { name: 'Data Quality (QA)', area: 'Cross-cutting' },
           { name: 'Workflow Automation', area: 'Coordination' },
+        ],
+      },
+      {
+        tier: 'P2',
+        name: 'Roadmap',
+        agents: [
+          { name: 'CRM Agent', area: 'Deals pipeline & follow-ups', status: 'In progress' },
         ],
       },
     ],
