@@ -10,7 +10,7 @@ export const profile = {
   title: 'Full Stack & AI Engineer',
   company: 'Krypsos',
   location: 'Based in India',
-  photo: '/portfolio dp.jpeg',
+  photo: '/img/profile.jpg',
   tagline: 'I build products end to end, from the API to the AI agent.',
   status: 'Currently building multi-agent AI systems',
   email: 'harideepak.s10@gmail.com',
