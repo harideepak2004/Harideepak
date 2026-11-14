@@ -133,24 +133,44 @@ function SiteMock() {
   )
 }
 
+// Cards with a url link out; private projects (no url) render as a plain card
+function MiniCard({ w, children }) {
+  return w.url
+    ? <a className="mini" href={w.url} target="_blank" rel="noopener">{children}</a>
+    : <div className="mini mini-static">{children}</div>
+}
+
+// Placeholder for a voice assistant with no screenshot yet
+function VoiceMock() {
+  return (
+    <div className="vmock" aria-hidden="true">
+      <div className="vmock-ring"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" /></svg></div>
+      <p className="vmock-t">"Hi Deepak, Buddy listening"</p>
+      <div className="vmock-wave">{[6, 12, 18, 10, 16, 8, 14].map((h, i) => <span key={i} style={{ height: h }} />)}</div>
+    </div>
+  )
+}
+
 export function EarlierWork() {
   return (
     <section id="earlier">
       <Heading label="More Projects">Apps &amp; <em>websites</em></Heading>
       <div className="mini-grid reveal" style={{ transitionDelay: '.1s' }}>
         {earlierWork.map((w, i) => (
-          <a className="mini" href={w.url} target="_blank" rel="noopener" key={w.title}>
+          <MiniCard w={w} key={w.title}>
             <div className="mini-img">
-              {w.image ? <img src={w.image} alt={`${w.title} website`} loading="lazy" /> : <SiteMock />}
+              {w.image ? <img src={w.image} alt={`${w.title} screenshot`} loading="lazy" /> : w.mock === 'voice' ? <VoiceMock /> : <SiteMock />}
             </div>
             <div className="mini-body">
               <p className="pnum">{pad(i)} — {w.kind}</p>
               <h3 className="mini-t">{w.title}</h3>
               <p className="mini-d">{w.desc}</p>
               <div className="tags">{w.tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div>
-              <span className="plink">Live site <span className="pl-arr" /></span>
+              {w.url
+                ? <span className="plink">Live site <span className="pl-arr" /></span>
+                : <span className="plink plink-off">{w.note || 'Private project'}</span>}
             </div>
-          </a>
+          </MiniCard>
         ))}
       </div>
     </section>

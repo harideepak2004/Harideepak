@@ -156,6 +156,16 @@ export const skills = [
 // image: path under /public, or null to show a drawn placeholder
 export const earlierWork = [
   {
+    title: 'Buddy',
+    kind: 'AI voice assistant · Android',
+    url: null, // private project, no public link
+    note: 'Private project · for my own phone',
+    image: null,
+    mock: 'voice',
+    desc: 'A personal voice assistant for my Android phone that talks in English, Tamil and Thanglish. It makes calls, sends messages and files, opens apps, sets reminders and notes, drafts emails and searches the web with cited sources. A hybrid brain handles simple commands on-device and sends complex ones to a cloud LLM.',
+    tags: ['Python', 'Groq', 'Tavily', 'Android', 'GitHub Actions'],
+  },
+  {
     title: 'Dealership Management',
     kind: 'Automotive dealer platform · Demo',
     url: 'https://dealership-management-01.netlify.app/',
