@@ -115,7 +115,7 @@ export const caseStudies = [
           { name: 'Compliance', area: 'Risk & policy' },
           { name: 'Data Quality (QA)', area: 'Cross-cutting' },
           { name: 'Workflow Automation', area: 'Saved workflows' },
-          { name: 'Calendar', area: 'Scheduling', status: 'Testing' },
+          { name: 'Calendar', area: 'Scheduling' },
         ],
       },
       {
