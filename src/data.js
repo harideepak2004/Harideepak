@@ -34,7 +34,7 @@ export const about = [
 ]
 
 export const stats = [
-  { n: '7', label: 'Live projects' },
+  { n: '8', label: 'Live projects' },
   { n: '4', label: 'Full-stack platforms' },
   { n: '15+', label: 'Technologies' },
   { n: '2', label: 'LLM providers' },
@@ -155,6 +155,14 @@ export const skills = [
 // Other projects, shown as cards under "More Projects".
 // image: path under /public, or null to show a drawn placeholder
 export const earlierWork = [
+  {
+    title: 'Dealership Management',
+    kind: 'Automotive dealer platform · Demo',
+    url: 'https://dealership-management-01.netlify.app/',
+    image: '/img/dealership.jpg',
+    desc: 'A management platform for a Porsche dealer: leads, customers, test drives, quotations, bookings, inventory, payments, deliveries and service job cards, with a live dashboard of sales and lead sources. Django REST backend in progress.',
+    tags: ['React', 'Django REST', 'Netlify'],
+  },
   {
     title: 'Smart Parking',
     kind: 'Parking management app',
