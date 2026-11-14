@@ -34,9 +34,9 @@ export const about = [
 ]
 
 export const stats = [
-  { n: '8', label: 'Live projects' },
+  { n: '8+', label: 'Live projects' },
   { n: '4', label: 'Full-stack platforms' },
-  { n: '15+', label: 'Technologies' },
+  { n: '30+', label: 'Technologies' },
   { n: '2', label: 'LLM providers' },
 ]
 
@@ -146,10 +146,10 @@ export const aiPrinciples = [
 ]
 
 export const skills = [
-  { group: 'Backend', items: ['Python', 'Django · DRF', 'FastAPI', 'Node.js', 'REST APIs · JWT'] },
-  { group: 'Frontend & Mobile', items: ['React.js', 'Flutter', 'JavaScript (ES6+)', 'HTML5 · CSS3 · Tailwind', 'Responsive design'] },
-  { group: 'AI & LLMs', items: ['Multi-agent systems', 'Tool / function calling', 'Anthropic Claude', 'Groq', 'Prompt design & guardrails'] },
-  { group: 'Data & Deploy', items: ['PostgreSQL · MySQL', 'Stripe · OAuth', 'Netlify', 'Render', 'Git · GitHub Actions'] },
+  { group: 'Backend', items: ['Python', 'Django · DRF', 'FastAPI', 'Node.js', 'REST APIs · JWT', 'Webhooks · background jobs'] },
+  { group: 'Frontend & Mobile', items: ['React.js · React Router', 'Vite', 'Flutter', 'Android (voice assistant)', 'JavaScript (ES6+)', 'HTML5 · CSS3 · Tailwind'] },
+  { group: 'AI & LLMs', items: ['Multi-agent systems', 'Tool / function calling', 'Anthropic Claude · Groq', 'Tavily web search', 'Voice in / voice out', 'Prompt design & guardrails'] },
+  { group: 'Integrations & Deploy', items: ['PostgreSQL · MySQL', 'Stripe · OAuth 2.0', 'Gmail · Google Drive APIs', 'Telegram · WhatsApp · Slack', 'Netlify · Render', 'Git · GitHub Actions'] },
 ]
 
 // Other projects, shown as cards under "More Projects".
