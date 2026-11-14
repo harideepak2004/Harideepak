@@ -39,17 +39,17 @@ function SuperAgentDiagram() {
   return (
     <svg viewBox="0 0 440 340" role="img" aria-label="Architecture: a React web app talks to a Django core with teams, roles and approvals, which delegates to an Orchestrator Agent in FastAPI that coordinates email, messaging and eight more domain agents on an LLM">
       <Marker id={m} />
-      <Node x={70} y={16} w={140} h={44} title="React Web App" sub="Netlify" />
+      <Node x={70} y={16} w={140} h={44} title="Web App · Telegram" sub="React · Telegram bot" />
       <Node x={230} y={16} w={140} h={44} title="Approvals" sub="role-based policies" variant="ext" />
       <Arrow id={m} d="M140 60V94" /><Arrow id={m} d="M300 60V94" />
-      <Node x={50} y={98} w={340} h={50} title="Django · DRF Core" sub="auth · teams & roles · tasks · approvals" />
+      <Node x={50} y={98} w={340} h={50} title="Django · DRF Core" sub="teams & roles · approvals · Business Hub · CRM" />
       <Arrow id={m} d="M220 148V182" />
       <Node x={50} y={186} w={340} h={50} title="Orchestrator Agent" sub="FastAPI · built on the Base Agent" variant="hi" />
       <Line d="M220 236V254M64 254H376" />
       {[64, 168, 272, 376].map((x) => <Arrow key={x} id={m} d={`M${x} 254V270`} />)}
       <Node x={16} y={274} w={96} h={52} title="Email Ops" sub="Gmail OAuth" />
       <Node x={120} y={274} w={96} h={52} title="Messaging" sub="WA · TG · Slack" />
-      <Node x={224} y={274} w={96} h={52} title="+6 agents" sub="docs · finance" />
+      <Node x={224} y={274} w={96} h={52} title="+10 agents" sub="CRM · finance" />
       <Node x={328} y={274} w={96} h={52} title="LLM" sub="Groq · Claude" variant="ext" />
     </svg>
   )

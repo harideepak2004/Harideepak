@@ -151,6 +151,19 @@ function VoiceMock() {
   )
 }
 
+// Placeholder for the marketing agent: a scheduled social post
+function SocialMock() {
+  return (
+    <div className="smock" aria-hidden="true">
+      <div className="smock-card">
+        <div className="smock-head"><span className="smock-av" /><div><div className="ml" style={{ width: 70 }} /><div className="ml" style={{ width: 44 }} /></div></div>
+        <div className="smock-media"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+        <div className="smock-foot"><span>In · IG · FB</span><span className="smock-ok">Awaiting approval</span></div>
+      </div>
+    </div>
+  )
+}
+
 export function EarlierWork() {
   return (
     <section id="earlier">
@@ -159,7 +172,7 @@ export function EarlierWork() {
         {earlierWork.map((w, i) => (
           <MiniCard w={w} key={w.title}>
             <div className="mini-img">
-              {w.image ? <img src={w.image} alt={`${w.title} screenshot`} loading="lazy" /> : w.mock === 'voice' ? <VoiceMock /> : <SiteMock />}
+              {w.image ? <img src={w.image} alt={`${w.title} screenshot`} loading="lazy" /> : w.mock === 'voice' ? <VoiceMock /> : w.mock === 'social' ? <SocialMock /> : <SiteMock />}
             </div>
             <div className="mini-body">
               <p className="pnum">{pad(i)} — {w.kind}</p>

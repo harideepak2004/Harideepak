@@ -47,9 +47,11 @@ export const experience = [
     org: 'Krypsos',
     role: 'Software Developer · Full Stack & AI',
     points: [
-      'Building Super Agent, a multi-agent AI platform: 10 agents on a Django core and FastAPI agent service, with a React web app and human-in-the-loop approvals.',
+      'Building Super Agent, a multi-agent AI platform: a dozen agents on a Django core and FastAPI agent service, with a React web app, an Agent Builder, a Business Hub with CRM, and human-in-the-loop approvals.',
+      'Built a Telegram bot for staff chat and daily nudges, and AI replies to customers on Telegram and WhatsApp that wait for approval before sending.',
       'Built the backend for a clinic management system: bookings, patients, inventory, Stripe payments in EUR and an AI assistant.',
       'Integrated Gmail (OAuth), Google Drive, WhatsApp, Telegram, Slack and Stripe, and made LLM tool-calling reliable with grounding checks, retries, output recovery and timeouts.',
+      'Building a Digital Marketing Agent that drafts the company\'s daily posts and website explainer videos with AI voice-over for LinkedIn, Instagram and Facebook, with approval before anything is posted.',
       'Deploy and run the apps on Netlify (frontends) and Render (APIs and databases).',
     ],
   },
@@ -74,14 +76,16 @@ export const caseStudies = [
     kind: 'AI Platform',
     org: 'Krypsos',
     title: 'Super Agent Platform',
-    desc: 'Your AI workforce, orchestrated. 10 specialised agents handle real business work across email, messaging, documents, finance, reporting, compliance and multi-step workflows, with a human approval step built in for risky actions.',
+    desc: 'Your AI workforce, orchestrated. A dozen specialised agents handle real business work across email, messaging, documents, finance, CRM, reporting, compliance and multi-step workflows. Staff chat with it on the web or Telegram, and risky actions wait for human approval.',
     highlights: [
       { icon: 'user', title: 'My role', text: 'Full-stack developer across the Django / DRF backend, the FastAPI agent service and the React web app that covers every module of the platform.' },
-      { icon: 'mail', title: 'Real integrations', text: 'Agents work in Gmail (OAuth) and Google Drive and send messages over WhatsApp, Telegram and Slack. Saved workflows run end to end automatically.' },
-      { icon: 'lock', title: 'Approvals & team roles', text: 'Admin, Manager and Member roles with approval policies per agent (for example, Finance needs an Admin). Sensitive actions like sending emails or messages wait for approval.' },
+      { icon: 'spark', title: 'Default Assistant & Agent Builder', text: 'A built-in assistant chats with users, explains every agent, recommends the right one and hires it from chat. Admins can create new agents by describing them, previewing and confirming.' },
+      { icon: 'mail', title: 'Real integrations', text: 'Agents work in Gmail (OAuth) and Google Drive and message customers on WhatsApp, Telegram and Slack. Staff get a private Telegram chat with the bot and a daily nudge at a time they choose.' },
+      { icon: 'card', title: 'Business Hub & CRM', text: 'Uploaded business data feeds a live dashboard. The CRM tracks deals and follow-ups and logs every customer touch automatically, from agent messages to Gmail inbox and sent mail.' },
+      { icon: 'lock', title: 'Approvals & team roles', text: 'Admin, Manager and Member roles with approval policies per agent (for example, Finance needs an Admin). One-off emails, messages and AI replies to customers wait for approval; saved workflows run on their own.' },
       { icon: 'shield', title: 'Grounded, reliable agents', text: 'A grounding check stops an agent from reporting a send or action it never made, plus recovery from malformed tool calls, retries and task timeouts on Anthropic Claude and Groq.' },
     ],
-    tags: ['Django', 'DRF', 'FastAPI', 'React', 'Claude', 'Groq', 'OAuth'],
+    tags: ['Django', 'DRF', 'FastAPI', 'React', 'Claude', 'Groq', 'OAuth', 'Telegram Bot API'],
     demo: 'https://super-agent-platform.netlify.app/',
     demoNote: 'The API runs on Render\'s free plan, so the first request can take up to a minute while the server wakes up.',
     screenshot: '/img/super-agent.jpg',
@@ -95,27 +99,30 @@ export const caseStudies = [
         agents: [
           { name: 'Base Agent', area: 'Platform foundation' },
           { name: 'Orchestrator Agent', area: 'Coordination' },
+          { name: 'Default Assistant', area: 'Chat · recommends & hires agents' },
         ],
       },
       {
         tier: 'P1',
         name: 'Domain agents',
         agents: [
-          { name: 'Email Operations', area: 'Communication' },
-          { name: 'Document Processing', area: 'Operations' },
+          { name: 'Email Operations', area: 'Gmail' },
+          { name: 'Document Processing', area: 'Google Drive' },
           { name: 'Invoice & Expense', area: 'Finance' },
           { name: 'Communication', area: 'WhatsApp · Telegram · Slack' },
+          { name: 'CRM', area: 'Deals · follow-ups · activity' },
           { name: 'Reporting', area: 'Analytics' },
           { name: 'Compliance', area: 'Risk & policy' },
           { name: 'Data Quality (QA)', area: 'Cross-cutting' },
-          { name: 'Workflow Automation', area: 'Coordination' },
+          { name: 'Workflow Automation', area: 'Saved workflows' },
+          { name: 'Calendar', area: 'Scheduling', status: 'Testing' },
         ],
       },
       {
         tier: 'P2',
         name: 'Roadmap',
         agents: [
-          { name: 'CRM Agent', area: 'Deals pipeline & follow-ups', status: 'In progress' },
+          { name: 'Browser Agent', area: 'Acts on websites', status: 'In progress' },
         ],
       },
     ],
@@ -139,10 +146,10 @@ export const caseStudies = [
 ]
 
 export const aiPrinciples = [
-  { title: 'Agents & orchestration', text: 'Specialised agents with clear tools, coordinated by an orchestrator that routes tasks and passes results between steps.' },
+  { title: 'Agents & orchestration', text: 'Specialised agents with clear tools, coordinated by an orchestrator that routes tasks and passes results between steps, with a default assistant that picks the right agent for each request.' },
   { title: 'Reliability first', text: 'Retry logic, recovery from malformed tool calls and task timeouts, so an agent fails safely instead of silently.' },
   { title: 'Grounded answers', text: 'The model answers from real application data through tools, with guardrails that stop it inventing appointments, prices or records.' },
-  { title: 'Real integrations', text: 'Gmail and Google Drive over OAuth, Stripe payments, and REST APIs, so agents can take real actions rather than only chat.' },
+  { title: 'Human in the loop', text: 'Agents connect to Gmail, Drive, WhatsApp, Telegram, Slack and Stripe to take real actions, and anything risky waits for a person to approve it first.' },
 ]
 
 export const skills = [
@@ -164,6 +171,16 @@ export const earlierWork = [
     mock: 'voice',
     desc: 'A personal voice assistant for my Android phone that talks in English, Tamil and Thanglish. It makes calls, sends messages and files, opens apps, sets reminders and notes, drafts emails and searches the web with cited sources. A hybrid brain handles simple commands on-device and sends complex ones to a cloud LLM.',
     tags: ['Python', 'Groq', 'Tavily', 'Android', 'GitHub Actions'],
+  },
+  {
+    title: 'Digital Marketing Agent',
+    kind: 'AI content agent · Krypsos',
+    url: null,
+    note: 'In testing · not public yet',
+    image: null,
+    mock: 'social',
+    desc: 'An agent that creates the company\'s daily social media content: website explainer videos with an AI voice-over, and posts based on the website, events, festivals and market trends, for LinkedIn, Instagram and Facebook. Nothing is posted without approval.',
+    tags: ['Claude Haiku', 'AI voice-over', 'Video generation', 'Scheduling'],
   },
   {
     title: 'Dealership Management',

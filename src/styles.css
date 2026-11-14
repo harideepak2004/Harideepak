@@ -319,3 +319,13 @@ footer{border-top:1px solid var(--line);padding:36px 64px;display:flex;align-ite
 .vmock-t{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--text-muted);}
 .vmock-wave{display:flex;align-items:center;gap:4px;height:20px;}
 .vmock-wave span{width:3px;border-radius:2px;background:var(--accent);opacity:.7;}
+
+/* marketing agent placeholder */
+.smock-card{width:190px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;box-shadow:0 12px 28px -18px rgba(0,0,0,.4);}
+.smock-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.smock-head .ml{height:5px;margin-bottom:4px;}
+.smock-av{width:20px;height:20px;border-radius:50%;background:var(--accent);opacity:.5;}
+.smock-media{height:70px;border-radius:4px;background:var(--surface2);display:flex;align-items:center;justify-content:center;}
+.smock-media svg{width:20px;height:20px;fill:var(--accent);}
+.smock-foot{display:flex;justify-content:space-between;margin-top:8px;font-family:var(--mono);font-size:8px;letter-spacing:.06em;color:var(--text-faint);}
+.smock-ok{color:var(--accent-d);}
