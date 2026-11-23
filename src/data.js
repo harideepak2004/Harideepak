@@ -155,7 +155,7 @@ export const caseStudies = [
       { icon: 'lock', title: 'Review before publishing', text: 'A content queue with statuses from Needs review to Published, a quality score on every item, and nothing goes live until it is approved.' },
     ],
     tags: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Claude Haiku', 'Render'],
-    demo: 'https://social-media-agent-y7yv.onrender.com/',
+    demo: 'https://krypsos-agent-app.onrender.com/',
     screenshot: '/img/marketing-agent.jpg',
     diagram: 'marketing',
     diagramLabel: 'architecture · marketing-agent',
