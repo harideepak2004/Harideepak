@@ -76,7 +76,28 @@ function AuraDiagram() {
   )
 }
 
-const diagrams = { superAgent: SuperAgentDiagram, aura: AuraDiagram }
+function MarketingDiagram() {
+  const m = 'a3'
+  return (
+    <svg viewBox="0 0 440 340" role="img" aria-label="Architecture: a React dashboard and a daily scheduler drive the agent API on Render, which uses Claude Haiku to write content, stores posts and media in Supabase, gets videos from a video PC, and publishes approved content to social media">
+      <Marker id={m} />
+      <Node x={70} y={16} w={140} h={44} title="React Dashboard" sub="Vite · TypeScript" />
+      <Node x={230} y={16} w={140} h={44} title="Scheduler" sub="1 post a day" variant="ext" />
+      <Arrow id={m} d="M140 60V94" /><Arrow id={m} d="M300 60V94" />
+      <Node x={50} y={98} w={340} h={50} title="Agent API · Render" sub="content engine · review queue · approvals" variant="hi" />
+      <Line d="M220 148V166M64 166H376" />
+      {[64, 168, 272, 376].map((x) => <Arrow key={x} id={m} d={`M${x} 166V184`} />)}
+      <Node x={16} y={188} w={96} h={52} title="Claude Haiku" sub="writes posts" variant="ext" />
+      <Node x={120} y={188} w={96} h={52} title="Supabase" sub="DB · media" variant="db" />
+      <Node x={224} y={188} w={96} h={52} title="Video PC" sub="voice-over" variant="ext" />
+      <Node x={328} y={188} w={96} h={52} title="Approval" sub="human check" />
+      <Arrow id={m} d="M376 240V280" />
+      <Node x={250} y={284} w={174} h={44} title="Social media" sub="IG · LinkedIn · FB" variant="ext" />
+    </svg>
+  )
+}
+
+const diagrams = { superAgent: SuperAgentDiagram, aura: AuraDiagram, marketing: MarketingDiagram }
 
 function Roster({ tiers }) {
   const total = tiers.reduce((n, t) => n + t.agents.length, 0)

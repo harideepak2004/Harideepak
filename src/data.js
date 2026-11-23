@@ -68,7 +68,7 @@ export const experience = [
 
 // icon: one of 'user' | 'mail' | 'shield' | 'lock' | 'calendar' | 'card' | 'spark'
 // agent status (optional): e.g. 'In progress' shows a small tag on the agent card
-// diagram: one of 'superAgent' | 'aura'
+// diagram: one of 'superAgent' | 'aura' | 'marketing'
 // screenshot: path under /public (optional). When set, the card shows
 //             Screenshot / Architecture tabs.
 export const caseStudies = [
@@ -144,6 +144,24 @@ export const caseStudies = [
     diagram: 'aura',
     diagramLabel: 'architecture · aura',
   },
+  {
+    kind: 'AI Marketing Agent',
+    org: 'Krypsos',
+    title: 'Digital Marketing Agent',
+    desc: 'An AI agent that runs the company\'s social media. It plans the week, creates posts and explainer videos, and publishes them on schedule, with a person approving everything before it goes out.',
+    highlights: [
+      { icon: 'user', title: 'My role', text: 'Built it end to end: the content engine, the React + TypeScript dashboard, scheduling, approvals and publishing.' },
+      { icon: 'spark', title: 'Content from anything', text: 'Creates posts from any website link, events, festivals and market trends in the company\'s own style without repeating designs, plus explainer videos with AI voice-over rendered on a separate video PC.' },
+      { icon: 'calendar', title: 'Weekly plan & schedule', text: 'A weekly calendar of post and video days. One automatic post a day at a set time, extra posts with Generate now, and a pause switch for holidays and busy weeks.' },
+      { icon: 'lock', title: 'Review before publishing', text: 'A content queue with statuses from Needs review to Published, a quality score on every item, and nothing goes live until it is approved.' },
+    ],
+    tags: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Claude Haiku', 'Render'],
+    demo: 'https://social-media-agent-y7yv.onrender.com/',
+    demoNote: 'Hosted on Render\'s free plan, so the first load can take up to a minute while the server wakes up.',
+    screenshot: '/img/marketing-agent.jpg',
+    diagram: 'marketing',
+    diagramLabel: 'architecture · marketing-agent',
+  },
 ]
 
 export const aiPrinciples = [
@@ -172,15 +190,6 @@ export const earlierWork = [
     mock: 'voice',
     desc: 'A personal voice assistant for my Android phone that talks in English, Tamil and Thanglish. It makes calls, sends messages and files, opens apps, sets reminders and notes, drafts emails and searches the web with cited sources. A hybrid brain handles simple commands on-device and sends complex ones to a cloud LLM.',
     tags: ['Python', 'Groq', 'Tavily', 'Android', 'GitHub Actions'],
-  },
-  {
-    title: 'Digital Marketing Agent',
-    kind: 'AI content agent · Krypsos',
-    url: 'https://social-media-agent-y7yv.onrender.com/',
-    image: null,
-    mock: 'social',
-    desc: 'An agent that creates the company\'s social media content for LinkedIn, Instagram and Facebook: posts from any website link, events, festivals and trends, plus explainer videos with AI voice-over. A dashboard to review the content queue and connect accounts. One automatic post a day, more on demand, and nothing goes out without approval.',
-    tags: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Claude Haiku', 'Render'],
   },
   {
     title: 'Dealership Management',
