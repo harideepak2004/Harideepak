@@ -62,7 +62,7 @@ function AuraDiagram() {
       <Marker id={m} />
       <Node x={120} y={16} w={200} h={44} title="React Dashboard" sub="Netlify · JWT login" />
       <Arrow id={m} d="M220 60V94" />
-      <Node x={50} y={98} w={340} h={50} title="Django 5 · DRF API" sub="Render · REST + JWT" variant="hi" />
+      <Node x={50} y={98} w={340} h={50} title="Django 5 · DRF API" sub="multi-tenant · REST + JWT" variant="hi" />
       <Line d="M220 148V166M64 166H376" />
       {[64, 168, 272, 376].map((x) => <Arrow key={x} id={m} d={`M${x} 166V184`} />)}
       <Node x={16} y={188} w={96} h={52} title="Booking" sub="overlap checks" />

@@ -34,8 +34,8 @@ export const about = [
 ]
 
 export const stats = [
-  { n: '8+', label: 'Live projects' },
-  { n: '4', label: 'Full-stack platforms' },
+  { n: '9+', label: 'Live projects' },
+  { n: '5', label: 'Full-stack platforms' },
   { n: '30+', label: 'Technologies' },
   { n: '2', label: 'LLM providers' },
 ]
@@ -49,9 +49,9 @@ export const experience = [
     points: [
       'Building Super Agent, a multi-agent AI platform: a dozen agents on a Django core and FastAPI agent service, with a React web app, an Agent Builder, a Business Hub with CRM, and human-in-the-loop approvals.',
       'Built a Telegram bot for staff chat and daily nudges, and AI replies to customers on Telegram and WhatsApp that wait for approval before sending.',
-      'Built the backend for a clinic management system: bookings, patients, inventory, Stripe payments in EUR and an AI assistant.',
+      'Built the backend for Aura, a clinic management system (bookings, patients, inventory, Stripe payments in EUR and an AI assistant), and am turning it into a multi-tenant SaaS with Stripe subscriptions.',
       'Integrated Gmail (OAuth), Google Drive, WhatsApp, Telegram, Slack and Stripe, and made LLM tool-calling reliable with grounding checks, retries, output recovery and timeouts.',
-      'Building a Digital Marketing Agent that drafts the company\'s daily posts and website explainer videos with AI voice-over for LinkedIn, Instagram and Facebook, with approval before anything is posted.',
+      'Built a Digital Marketing Agent with a React dashboard that creates the company\'s daily posts and website explainer videos with AI voice-over for LinkedIn, Instagram and Facebook, with approval before anything is posted.',
       'Deploy and run the apps on Netlify (frontends) and Render (APIs and databases).',
     ],
   },
@@ -131,13 +131,14 @@ export const caseStudies = [
     kind: 'Healthcare Platform',
     org: 'Krypsos',
     title: 'Aura Clinic Management System',
-    desc: 'An operations platform for a high-end clinic: appointments, therapists and rooms, patients, inventory, billing, and an AI assistant for staff.',
+    desc: 'An operations platform for high-end clinics: appointments, therapists and rooms, patients, inventory, billing, and an AI assistant for staff. Now becoming a multi-tenant SaaS, where many clinics run on one platform with their data kept fully separate.',
     highlights: [
       { icon: 'calendar', title: 'Smart booking', text: 'Timezone-aware scheduling that detects overlaps across therapists, rooms, breaks and staff leave.' },
-      { icon: 'card', title: 'Payments', text: 'Stripe PaymentIntents and Checkout Sessions in EUR.' },
+      { icon: 'card', title: 'Payments & subscriptions', text: 'Stripe PaymentIntents and Checkout Sessions in EUR for clinic billing, plus Stripe subscriptions for the SaaS: a Starter plan, with new clinics starting on a free trial without a card.' },
+      { icon: 'lock', title: 'Multi-tenant SaaS', text: 'Each clinic gets its own isolated space on a shared backend, and the Aura Console lets the platform Super Admin manage every clinic.' },
       { icon: 'spark', title: 'AI assistant', text: 'An in-app assistant on Groq with retry logic and guardrails that stop it inventing data.' },
     ],
-    tags: ['Django 5', 'DRF', 'PostgreSQL', 'JWT', 'Stripe', 'React', 'Render'],
+    tags: ['Django 5', 'DRF', 'PostgreSQL', 'JWT', 'Stripe', 'Multi-tenant SaaS', 'React'],
     demo: 'https://aura-clinical-platform.netlify.app/',
     screenshot: '/img/aura.jpg',
     diagram: 'aura',
@@ -154,9 +155,9 @@ export const aiPrinciples = [
 
 export const skills = [
   { group: 'Backend', items: ['Python', 'Django · DRF', 'FastAPI', 'Node.js', 'REST APIs · JWT', 'Webhooks · background jobs'] },
-  { group: 'Frontend & Mobile', items: ['React.js · React Router', 'Vite', 'Flutter', 'Android (voice assistant)', 'JavaScript (ES6+)', 'HTML5 · CSS3 · Tailwind'] },
+  { group: 'Frontend & Mobile', items: ['React.js · React Router', 'Vite', 'Flutter', 'Android (voice assistant)', 'JavaScript · TypeScript', 'HTML5 · CSS3 · Tailwind'] },
   { group: 'AI & LLMs', items: ['Multi-agent systems', 'Tool / function calling', 'Anthropic Claude · Groq', 'Tavily web search', 'Voice in / voice out', 'Prompt design & guardrails'] },
-  { group: 'Integrations & Deploy', items: ['PostgreSQL · MySQL', 'Stripe · OAuth 2.0', 'Gmail · Google Drive APIs', 'Telegram · WhatsApp · Slack', 'Netlify · Render', 'Git · GitHub Actions'] },
+  { group: 'Integrations & Deploy', items: ['PostgreSQL · MySQL · Supabase', 'Stripe · OAuth 2.0', 'Gmail · Google Drive APIs', 'Telegram · WhatsApp · Slack', 'Netlify · Render', 'Git · GitHub Actions'] },
 ]
 
 // Other projects, shown as cards under "More Projects".
@@ -175,12 +176,11 @@ export const earlierWork = [
   {
     title: 'Digital Marketing Agent',
     kind: 'AI content agent · Krypsos',
-    url: null,
-    note: 'In testing · not public yet',
+    url: 'https://social-media-agent-y7yv.onrender.com/',
     image: null,
     mock: 'social',
-    desc: 'An agent that creates the company\'s daily social media content: website explainer videos with an AI voice-over, and posts based on the website, events, festivals and market trends, for LinkedIn, Instagram and Facebook. Nothing is posted without approval.',
-    tags: ['Claude Haiku', 'AI voice-over', 'Video generation', 'Scheduling'],
+    desc: 'An agent that creates the company\'s social media content for LinkedIn, Instagram and Facebook: posts from any website link, events, festivals and trends, plus explainer videos with AI voice-over. A dashboard to review the content queue and connect accounts. One automatic post a day, more on demand, and nothing goes out without approval.',
+    tags: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Claude Haiku', 'Render'],
   },
   {
     title: 'Dealership Management',
